@@ -1,215 +1,135 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Abdoulaye's personal website — software developer and open source enthusiast." />
-  <title>rasiduad — Abdoulaye</title>
+  <meta name="description" content="RASID-UAD — Réseau des Anciens et Sympathisants de l'Informatique Décisionnelle, Université Alioune Diop de Bambey. Rejoignez le réseau des alumni du Master SID." />
+  <meta name="keywords" content="RASID-UAD, UADB, Master SID, informatique décisionnelle, alumni, data, Sénégal, Bambey" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="RASID-UAD — Réseau des Alumni SID de l'UADB" />
+  <meta property="og:description" content="Réseau des Anciens et Sympathisants de l'Informatique Décisionnelle — Université Alioune Diop de Bambey." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://rasiduad.github.io/" />
+  <meta property="og:locale" content="fr_FR" />
+  <title>RASID-UAD — Accueil</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>👨‍💻</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📊</text></svg>" />
+  <!-- Font Awesome via CDN pour les icônes -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <header>
-    <div class="container">
-      <div class="hero">
-        <div class="avatar">👨‍💻</div>
-        <div class="hero-text">
-          <h1>Abdoulaye</h1>
-          <p class="username">rasiduad</p>
-          <p class="tagline">Software developer · Open source enthusiast · Building things for the web.</p>
-          <span class="status-badge">
-            <span class="status-dot"></span>
-            Available for opportunities
-          </span>
-        </div>
-      </div>
-
-      <nav>
-        <a href="#about" class="nav-link active">Overview</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#contact" class="nav-link">Contact</a>
+  <!-- ===== EN-TÊTE / NAVIGATION ===== -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-icon"><i class="fas fa-chart-line"></i></span>
+        <span class="logo-text">RASID-UAD</span>
+      </a>
+      <!-- Bouton burger pour mobile -->
+      <button class="burger" id="burger-btn" aria-label="Ouvrir le menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <nav class="main-nav" id="main-nav">
+        <a href="index.html" class="nav-link active">Accueil</a>
+        <a href="apropos.html" class="nav-link">À propos</a>
+        <a href="missions.html" class="nav-link">Missions</a>
+        <a href="activites.html" class="nav-link">Activités</a>
+        <a href="carriere.html" class="nav-link">Carrière</a>
+        <a href="rejoindre.html" class="nav-link">Nous rejoindre</a>
+        <a href="contact.html" class="nav-link">Contact</a>
       </nav>
     </div>
   </header>
 
-  <main>
-    <div class="container">
-
-      <!-- About -->
-      <section id="about">
-        <h2 class="section-title">About</h2>
-        <p class="about-text">
-          Hi there! I'm Abdoulaye, a passionate software developer who loves crafting clean,
-          efficient, and user-friendly applications. I enjoy working across the full stack,
-          exploring new technologies, and contributing to open source projects.
-          When I'm not coding, you'll find me learning something new or collaborating with
-          amazing people around the world.
-        </p>
-      </section>
-
-      <!-- Contribution graph -->
-      <section>
-        <div class="contrib-section">
-          <p class="contrib-title">Contribution activity</p>
-          <div class="contrib-grid" id="contrib-grid" aria-label="Contribution graph"></div>
-        </div>
-      </section>
-
-      <!-- Projects -->
-      <section id="projects">
-        <h2 class="section-title">Pinned projects</h2>
-        <div class="projects-grid">
-
-          <a class="project-card" href="https://github.com/rasiduad/rasiduad.github.io" target="_blank" rel="noopener noreferrer">
-            <div class="project-card-header">
-              <span class="project-icon">📖</span>
-              <span class="project-name">rasiduad.github.io</span>
-            </div>
-            <p class="project-description">My personal website and portfolio, built with plain HTML &amp; CSS and hosted on GitHub Pages.</p>
-            <div class="project-meta">
-              <span class="project-lang">
-                <span class="lang-dot" style="background:#e34c26;"></span>
-                HTML
-              </span>
-            </div>
-          </a>
-
-          <a class="project-card" href="https://github.com/rasiduad" target="_blank" rel="noopener noreferrer">
-            <div class="project-card-header">
-              <span class="project-icon">⭐</span>
-              <span class="project-name">More on GitHub</span>
-            </div>
-            <p class="project-description">Browse all public repositories and contributions on my GitHub profile.</p>
-            <div class="project-meta">
-              <span class="project-lang">
-                <span class="lang-dot" style="background:#58a6ff;"></span>
-                Open Source
-              </span>
-            </div>
-          </a>
-
-        </div>
-      </section>
-
-      <!-- Skills -->
-      <section id="skills">
-        <h2 class="section-title">Technologies &amp; Tools</h2>
-        <div class="skills-grid">
-          <span class="skill-tag">HTML</span>
-          <span class="skill-tag">CSS</span>
-          <span class="skill-tag">JavaScript</span>
-          <span class="skill-tag">Python</span>
-          <span class="skill-tag">Git</span>
-          <span class="skill-tag">GitHub</span>
-          <span class="skill-tag">Linux</span>
-          <span class="skill-tag">REST APIs</span>
-          <span class="skill-tag">Open Source</span>
-        </div>
-      </section>
-
-      <!-- Contact -->
-      <section id="contact">
-        <h2 class="section-title">Get in touch</h2>
-        <div class="links-list">
-          <a class="link-item" href="https://github.com/rasiduad" target="_blank" rel="noopener noreferrer">
-            <span class="link-icon">
-              <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38
-                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13
-                  -.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66
-                  .07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15
-                  -.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0
-                  1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
-                  1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01
-                  1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
-              </svg>
-            </span>
-            github.com/rasiduad
-          </a>
-          <a class="link-item" href="mailto:ablaye0m@gmail.com">
-            <span class="link-icon">
-              <svg height="20" width="20" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true">
-                <path d="M1.75 2A1.75 1.75 0 000 3.75v.736a.75.75 0 000 .027v7.737C0 13.216.784 14
-                  1.75 14h12.5A1.75 1.75 0 0016 12.25v-8.5A1.75 1.75 0 0014.25 2H1.75zM1.5 3.75
-                  a.25.25 0 01.25-.25h12.5a.25.25 0 01.25.25v.13l-6.25 4.814L2 3.986v-.236zm0
-                  2.262l5.5 4.236a.75.75 0 00.9 0L13.5 6.012v6.238a.25.25 0 01-.25.25H1.75a.25.25
-                  0 01-.25-.25V6.012z"/>
-              </svg>
-            </span>
-            ablaye0m@gmail.com
-          </a>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <div class="container">
-      <p>
-        &copy; 2026 Abdoulaye (rasiduad) ·
-        <a href="https://github.com/rasiduad/rasiduad.github.io" target="_blank" rel="noopener noreferrer">Source</a>
+  <!-- ===== BANNIÈRE D'ACCUEIL ===== -->
+  <section class="hero">
+    <div class="container hero-content">
+      <h1>RASID-UAD</h1>
+      <p class="hero-subtitle">Réseau des Alumni SID de l'UADB — Ensemble pour la valorisation de nos compétences en data et aide à la décision</p>
+      <p class="hero-text">
+        Le Réseau des Anciens et Sympathisants de l'Informatique Décisionnelle de l'Université Alioune Diop de Bambey
+        rassemble les diplômés du Master Statistique et Informatique Décisionnelle autour du partage, de l'entraide
+        et du rayonnement de nos compétences dans les métiers de la data.
       </p>
+      <div class="hero-actions">
+        <a href="rejoindre.html" class="btn btn-primary"><i class="fas fa-user-plus"></i> Nous rejoindre</a>
+        <a href="activites.html" class="btn btn-secondary"><i class="fas fa-calendar-alt"></i> Nos activités</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== POINTS FORTS ===== -->
+  <section class="section highlights">
+    <div class="container">
+      <h2 class="section-title">Pourquoi RASID-UAD ?</h2>
+      <div class="cards-grid">
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-handshake"></i></div>
+          <h3>Solidarité</h3>
+          <p>Un réseau d'entraide actif entre anciens et nouveaux diplômés du Master SID.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-briefcase"></i></div>
+          <h3>Carrière</h3>
+          <p>Accompagnement à l'insertion professionnelle et partage d'opportunités dans la data.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon"><i class="fas fa-graduation-cap"></i></div>
+          <h3>Excellence</h3>
+          <p>Contribuer au rayonnement du Master SID et de l'UADB au Sénégal et à l'international.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== APPEL À L'ACTION ===== -->
+  <section class="section cta-section">
+    <div class="container cta-content">
+      <h2>Rejoignez le réseau !</h2>
+      <p>Vous êtes diplômé(e) du Master SID de l'UADB ? Intégrez notre communauté pour bénéficier du réseau, du mentorat et des opportunités professionnelles.</p>
+      <a href="rejoindre.html" class="btn btn-primary"><i class="fas fa-arrow-right"></i> Adhérer maintenant</a>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-icon"><i class="fas fa-chart-line"></i></span>
+        <span class="logo-text">RASID-UAD</span>
+        <p class="footer-tagline">Réseau des Anciens et Sympathisants de l'Informatique Décisionnelle — UADB</p>
+      </div>
+      <div class="footer-links">
+        <h4>Liens rapides</h4>
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="apropos.html">À propos</a></li>
+          <li><a href="missions.html">Missions</a></li>
+          <li><a href="activites.html">Activités</a></li>
+          <li><a href="carriere.html">Carrière</a></li>
+          <li><a href="rejoindre.html">Nous rejoindre</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-social">
+        <h4>Suivez-nous</h4>
+        <!-- [À COMPLÉTER] : Remplacer les # par les vrais liens vers les réseaux sociaux -->
+        <div class="social-icons">
+          <a href="#" aria-label="Facebook" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+          <a href="#" aria-label="LinkedIn" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Twitter / X" title="Twitter / X"><i class="fab fa-x-twitter"></i></a>
+          <a href="#" aria-label="WhatsApp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        <p>&copy; 2026 RASID-UAD — Association des anciens du Master SID, UADB &middot; Site propulsé par GitHub Pages</p>
+      </div>
     </div>
   </footer>
-
-  <script>
-    // Generate a randomised-but-seeded contribution graph for visual interest
-    (function () {
-      const grid = document.getElementById('contrib-grid');
-      if (!grid) return;
-      const weeks = 52;
-      const days = 7;
-      const seed = 42;
-      function pseudoRandom(n) {
-        const x = Math.sin(n + seed) * 10000;
-        return x - Math.floor(x);
-      }
-      let idx = 0;
-      for (let w = 0; w < weeks; w++) {
-        const week = document.createElement('div');
-        week.className = 'contrib-week';
-        for (let d = 0; d < days; d++) {
-          const day = document.createElement('div');
-          const r = pseudoRandom(idx++);
-          let level = 0;
-          if (r > 0.6) level = 1;
-          if (r > 0.75) level = 2;
-          if (r > 0.88) level = 3;
-          if (r > 0.95) level = 4;
-          day.className = 'contrib-day' + (level ? ' level-' + level : '');
-          day.title = level ? level + ' contribution' + (level > 1 ? 's' : '') : 'No contributions';
-          week.appendChild(day);
-        }
-        grid.appendChild(week);
-      }
-    })();
-
-    // Highlight active nav link on scroll
-    (function () {
-      const links = document.querySelectorAll('.nav-link');
-      const sections = Array.from(links)
-        .map(l => l.getAttribute('href'))
-        .filter(h => h && h.startsWith('#'))
-        .map(h => document.querySelector(h))
-        .filter(Boolean);
-
-      function onScroll() {
-        const scrollY = window.scrollY + 120;
-        let active = sections[0];
-        for (const s of sections) {
-          if (s.offsetTop <= scrollY) active = s;
-        }
-        links.forEach(l => {
-          l.classList.toggle('active', l.getAttribute('href') === '#' + active.id);
-        });
-      }
-
-      window.addEventListener('scroll', onScroll, { passive: true });
-    })();
-  </script>
 
 </body>
 </html>
