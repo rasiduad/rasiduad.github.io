@@ -1,0 +1,1119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RASID — Réseau des Alumni de Statistique et Informatique Décisionnelle</title>
+  <meta name="description" content="RASID est le réseau des alumni du programme Statistique et Informatique Décisionnelle (SID). Connecter les talents, valoriser l'expertise, construire l'avenir." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#1e3a5f',
+            'primary-dark': '#152c47',
+            'primary-light': '#2a4f7c',
+            gold: '#c9a84c',
+            'gold-light': '#e0c06a',
+            'gold-dark': '#a8893a',
+          },
+          fontFamily: {
+            sans: ['Inter', 'system-ui', 'sans-serif'],
+          },
+        },
+      },
+    };
+  </script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f5f9; }
+    ::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #c9a84c; }
+
+    /* Navbar scroll effect */
+    .navbar-scrolled {
+      box-shadow: 0 4px 20px rgba(30, 58, 95, 0.15);
+    }
+
+    /* Hero gradient */
+    .hero-gradient {
+      background: linear-gradient(135deg, #1e3a5f 0%, #2a4f7c 40%, #1e3a5f 70%, #152c47 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-gradient::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.15) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero-gradient::after {
+      content: '';
+      position: absolute;
+      bottom: -30%;
+      left: -10%;
+      width: 400px;
+      height: 400px;
+      background: radial-gradient(circle, rgba(201, 168, 76, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    /* Gold underline effect */
+    .gold-underline {
+      position: relative;
+      display: inline-block;
+    }
+    .gold-underline::after {
+      content: '';
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 60px;
+      height: 3px;
+      background: #c9a84c;
+      border-radius: 2px;
+    }
+
+    /* Card hover effects */
+    .card-hover {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 40px rgba(30, 58, 95, 0.15);
+    }
+
+    /* Avatar gradient */
+    .avatar-gradient {
+      background: linear-gradient(135deg, #1e3a5f, #2a4f7c);
+    }
+
+    /* Mobile menu animation */
+    #mobile-menu {
+      transition: max-height 0.3s ease, opacity 0.3s ease;
+      max-height: 0;
+      opacity: 0;
+      overflow: hidden;
+    }
+    #mobile-menu.open {
+      max-height: 400px;
+      opacity: 1;
+    }
+
+    /* Section fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Partner card */
+    .partner-card {
+      border: 2px solid #e2e8f0;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    .partner-card:hover {
+      border-color: #c9a84c;
+      box-shadow: 0 8px 24px rgba(201, 168, 76, 0.15);
+    }
+
+    /* Form input focus */
+    .form-input:focus {
+      outline: none;
+      border-color: #c9a84c;
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.15);
+    }
+
+    /* Event badge */
+    .event-badge {
+      background: linear-gradient(135deg, #1e3a5f, #2a4f7c);
+    }
+
+    /* Section alternate bg */
+    .section-alt {
+      background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
+    }
+  </style>
+</head>
+<body class="font-sans text-gray-800 antialiased">
+
+  <!-- ===== NAVIGATION ===== -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 bg-primary transition-all duration-300">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        <!-- Logo -->
+        <a href="#accueil" class="flex items-center space-x-3 group">
+          <div class="w-10 h-10 rounded-lg bg-gold flex items-center justify-center font-bold text-primary text-lg group-hover:bg-gold-light transition-colors">
+            R
+          </div>
+          <span class="text-white font-bold text-xl tracking-wide">RASID</span>
+        </a>
+
+        <!-- Desktop menu -->
+        <div class="hidden md:flex items-center space-x-1">
+          <a href="#accueil" class="nav-link text-gray-200 hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Accueil</a>
+          <a href="#apropos" class="nav-link text-gray-200 hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">À propos</a>
+          <a href="#reseau" class="nav-link text-gray-200 hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Réseau</a>
+          <a href="#evenements" class="nav-link text-gray-200 hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Événements</a>
+          <a href="#partenaires" class="nav-link text-gray-200 hover:text-gold px-3 py-2 rounded-md text-sm font-medium transition-colors">Partenaires</a>
+          <a href="#contact" class="ml-3 bg-gold hover:bg-gold-light text-primary font-semibold px-5 py-2 rounded-lg text-sm transition-colors">Rejoindre</a>
+        </div>
+
+        <!-- Hamburger button -->
+        <button id="menu-toggle" class="md:hidden text-gray-200 hover:text-gold focus:outline-none p-2" aria-label="Ouvrir le menu" aria-expanded="false">
+          <i id="menu-icon" class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu">
+      <div class="px-4 pb-4 space-y-1 bg-primary-dark border-t border-primary-light">
+        <a href="#accueil" class="mobile-link block text-gray-200 hover:text-gold hover:bg-primary-light px-3 py-2 rounded-md text-sm font-medium transition-colors">Accueil</a>
+        <a href="#apropos" class="mobile-link block text-gray-200 hover:text-gold hover:bg-primary-light px-3 py-2 rounded-md text-sm font-medium transition-colors">À propos</a>
+        <a href="#reseau" class="mobile-link block text-gray-200 hover:text-gold hover:bg-primary-light px-3 py-2 rounded-md text-sm font-medium transition-colors">Réseau</a>
+        <a href="#evenements" class="mobile-link block text-gray-200 hover:text-gold hover:bg-primary-light px-3 py-2 rounded-md text-sm font-medium transition-colors">Événements</a>
+        <a href="#partenaires" class="mobile-link block text-gray-200 hover:text-gold hover:bg-primary-light px-3 py-2 rounded-md text-sm font-medium transition-colors">Partenaires</a>
+        <a href="#contact" class="block bg-gold hover:bg-gold-light text-primary font-semibold px-3 py-2 rounded-md text-sm transition-colors text-center mt-2">Rejoindre le réseau</a>
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ===== HERO ===== -->
+  <section id="accueil" class="hero-gradient min-h-screen flex items-center pt-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 relative z-10">
+      <div class="max-w-3xl">
+        <!-- Badge -->
+        <div class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-8">
+          <div class="w-2 h-2 rounded-full bg-gold animate-pulse"></div>
+          <span class="text-gray-200 text-sm font-medium">Réseau Alumni UAD • Depuis 2015</span>
+        </div>
+
+        <!-- Main heading -->
+        <h1 class="text-5xl sm:text-6xl md:text-7xl font-extrabold text-white leading-tight mb-6">
+          <span class="text-gold">RASID</span>
+        </h1>
+        <h2 class="text-xl sm:text-2xl font-semibold text-blue-200 mb-4 leading-snug">
+          Réseau des Alumni de<br />
+          <span class="text-gold-light">Statistique et Informatique Décisionnelle</span>
+        </h2>
+
+        <!-- Tagline -->
+        <p class="text-lg sm:text-xl text-gray-300 font-light italic mb-10 border-l-4 border-gold pl-4">
+          "Connecter les talents, valoriser l'expertise, construire l'avenir"
+        </p>
+
+        <!-- Stats -->
+        <div class="flex flex-wrap gap-8 mb-12">
+          <div class="text-center">
+            <div class="text-4xl font-extrabold text-gold">500+</div>
+            <div class="text-gray-300 text-sm mt-1">Membres actifs</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-extrabold text-gold">10+</div>
+            <div class="text-gray-300 text-sm mt-1">Promotions</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-extrabold text-gold">30+</div>
+            <div class="text-gray-300 text-sm mt-1">Partenaires</div>
+          </div>
+          <div class="text-center">
+            <div class="text-4xl font-extrabold text-gold">15+</div>
+            <div class="text-gray-300 text-sm mt-1">Pays représentés</div>
+          </div>
+        </div>
+
+        <!-- CTA buttons -->
+        <div class="flex flex-wrap gap-4">
+          <a href="#contact" class="bg-gold hover:bg-gold-light text-primary font-bold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-lg hover:shadow-gold/30 flex items-center space-x-2">
+            <i class="fas fa-user-plus"></i>
+            <span>Rejoindre le réseau</span>
+          </a>
+          <a href="#apropos" class="border-2 border-white/40 hover:border-gold text-white hover:text-gold font-semibold px-8 py-4 rounded-xl text-base transition-all duration-300 flex items-center space-x-2">
+            <i class="fas fa-arrow-down"></i>
+            <span>Découvrir RASID</span>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/50 animate-bounce">
+      <i class="fas fa-chevron-down text-2xl"></i>
+    </div>
+  </section>
+
+
+  <!-- ===== À PROPOS ===== -->
+  <section id="apropos" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-16 fade-in">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Qui sommes-nous ?</p>
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 gold-underline">À propos de RASID</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-8">
+          RASID est le réseau officiel des anciens diplômés du programme
+          <strong class="text-primary">Statistique et Informatique Décisionnelle (SID)</strong>
+          de l'Université Alioune DIOP de Bambey (UAD).
+        </p>
+      </div>
+
+      <!-- Two-column layout -->
+      <div class="grid md:grid-cols-2 gap-12 items-center mb-20 fade-in">
+        <div>
+          <h3 class="text-2xl font-bold text-primary mb-4">Notre mission</h3>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Fondé pour fédérer les diplômés SID, RASID s'engage à créer des ponts entre les générations,
+            à valoriser l'expertise de ses membres et à accompagner les nouveaux diplômés dans leur
+            insertion professionnelle.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            À travers des événements, des mentorats et des partenariats stratégiques, nous construisons
+            ensemble un réseau solide au service de l'excellence académique et professionnelle.
+          </p>
+          <ul class="space-y-3">
+            <li class="flex items-start space-x-3">
+              <span class="mt-1 w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              <span class="text-gray-600">Renforcer les liens entre alumni et l'université</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="mt-1 w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              <span class="text-gray-600">Faciliter l'accès à l'emploi et aux opportunités</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="mt-1 w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              <span class="text-gray-600">Organiser des événements scientifiques et professionnels</span>
+            </li>
+            <li class="flex items-start space-x-3">
+              <span class="mt-1 w-5 h-5 rounded-full bg-gold/20 flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-check text-gold text-xs"></i>
+              </span>
+              <span class="text-gray-600">Développer des partenariats avec des entreprises et institutions</span>
+            </li>
+          </ul>
+        </div>
+        <div class="relative">
+          <div class="bg-primary rounded-2xl p-8 text-white relative overflow-hidden">
+            <div class="absolute top-0 right-0 w-32 h-32 bg-gold/10 rounded-full -translate-y-1/2 translate-x-1/2"></div>
+            <div class="absolute bottom-0 left-0 w-24 h-24 bg-gold/10 rounded-full translate-y-1/2 -translate-x-1/2"></div>
+            <div class="relative z-10">
+              <div class="w-12 h-12 bg-gold/20 rounded-xl flex items-center justify-center mb-6">
+                <i class="fas fa-graduation-cap text-gold text-2xl"></i>
+              </div>
+              <h4 class="text-xl font-bold mb-3">Programme SID</h4>
+              <p class="text-gray-300 text-sm leading-relaxed mb-6">
+                Le programme <em>Statistique et Informatique Décisionnelle</em> forme des experts
+                en analyse de données, machine learning, business intelligence et aide à la décision.
+              </p>
+              <div class="grid grid-cols-2 gap-4">
+                <div class="bg-white/10 rounded-lg p-3 text-center">
+                  <div class="text-2xl font-bold text-gold">Licence</div>
+                  <div class="text-gray-300 text-xs mt-1">Bac +3</div>
+                </div>
+                <div class="bg-white/10 rounded-lg p-3 text-center">
+                  <div class="text-2xl font-bold text-gold">Master</div>
+                  <div class="text-gray-300 text-xs mt-1">Bac +5</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Feature cards -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+        <!-- Card 1: Réseau -->
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
+          <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-network-wired text-primary text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-3">Réseau</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Rejoignez une communauté de plus de 500 alumni répartis dans 15 pays. Échangez,
+            collaborez et développez votre réseau professionnel.
+          </p>
+        </div>
+
+        <!-- Card 2: Emploi -->
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
+          <div class="w-14 h-14 bg-gold/15 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-briefcase text-gold-dark text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-3">Emploi</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Accédez aux offres d'emploi et de stage partagées par nos partenaires, et bénéficiez
+            du mentorat de nos membres expérimentés.
+          </p>
+        </div>
+
+        <!-- Card 3: Événements -->
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl p-8 shadow-sm">
+          <div class="w-14 h-14 bg-green-50 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-calendar-star text-green-600 text-2xl"></i>
+          </div>
+          <h3 class="text-xl font-bold text-primary mb-3">Événements</h3>
+          <p class="text-gray-600 leading-relaxed">
+            Participez à nos conférences, hackathons, webinaires et rencontres professionnelles
+            organisés tout au long de l'année.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== RÉSEAU / MEMBRES ===== -->
+  <section id="reseau" class="py-24 section-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-16 fade-in">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Notre communauté</p>
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 gold-underline">Notre Réseau</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-8">
+          Des centaines d'alumni SID s'épanouissent dans les domaines de la data science, 
+          de l'intelligence artificielle, du conseil et de la finance à travers le monde.
+        </p>
+      </div>
+
+      <!-- Members grid -->
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-12 fade-in">
+
+        <!-- Member 1 -->
+        <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="flex items-start space-x-4">
+            <div class="avatar-gradient w-14 h-14 rounded-full flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              AM
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-primary text-base truncate">Aminata Mbaye</h4>
+              <span class="inline-block bg-gold/15 text-gold-dark text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Promo 2019</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-sm font-semibold text-gray-800">Data Scientist Senior</p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-building text-xs mr-1.5 text-gold"></i>Orange Sénégal
+            </p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-map-marker-alt text-xs mr-1.5 text-gold"></i>Dakar, Sénégal
+            </p>
+          </div>
+          <div class="mt-4 flex space-x-2">
+            <a href="#" class="text-primary hover:text-gold transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="flex items-start space-x-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-gold to-gold-dark flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              OD
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-primary text-base truncate">Ousmane Diallo</h4>
+              <span class="inline-block bg-gold/15 text-gold-dark text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Promo 2017</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-sm font-semibold text-gray-800">Responsable BI & Analytics</p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-building text-xs mr-1.5 text-gold"></i>Sonatel / Orange
+            </p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-map-marker-alt text-xs mr-1.5 text-gold"></i>Dakar, Sénégal
+            </p>
+          </div>
+          <div class="mt-4 flex space-x-2">
+            <a href="#" class="text-primary hover:text-gold transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="flex items-start space-x-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-green-600 to-green-800 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              FF
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-primary text-base truncate">Fatou Fall</h4>
+              <span class="inline-block bg-gold/15 text-gold-dark text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Promo 2020</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-sm font-semibold text-gray-800">ML Engineer</p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-building text-xs mr-1.5 text-gold"></i>Expresso Télécoms
+            </p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-map-marker-alt text-xs mr-1.5 text-gold"></i>Dakar, Sénégal
+            </p>
+          </div>
+          <div class="mt-4 flex space-x-2">
+            <a href="#" class="text-primary hover:text-gold transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="flex items-start space-x-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-purple-600 to-purple-800 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              MD
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-primary text-base truncate">Moussa Diop</h4>
+              <span class="inline-block bg-gold/15 text-gold-dark text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Promo 2016</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-sm font-semibold text-gray-800">Actuaire & Risk Analyst</p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-building text-xs mr-1.5 text-gold"></i>AXA Assurances
+            </p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-map-marker-alt text-xs mr-1.5 text-gold"></i>Paris, France
+            </p>
+          </div>
+          <div class="mt-4 flex space-x-2">
+            <a href="#" class="text-primary hover:text-gold transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Member 5 -->
+        <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="flex items-start space-x-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-red-600 to-red-800 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              KN
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-primary text-base truncate">Khadija Ndiaye</h4>
+              <span class="inline-block bg-gold/15 text-gold-dark text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Promo 2021</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-sm font-semibold text-gray-800">Data Analyst</p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-building text-xs mr-1.5 text-gold"></i>Banque de l'Habitat du Sénégal
+            </p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-map-marker-alt text-xs mr-1.5 text-gold"></i>Dakar, Sénégal
+            </p>
+          </div>
+          <div class="mt-4 flex space-x-2">
+            <a href="#" class="text-primary hover:text-gold transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Member 6 -->
+        <div class="card-hover bg-white rounded-2xl p-6 shadow-sm border border-gray-100">
+          <div class="flex items-start space-x-4">
+            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-teal-600 to-teal-800 flex items-center justify-center text-white font-bold text-xl flex-shrink-0">
+              IB
+            </div>
+            <div class="flex-1 min-w-0">
+              <h4 class="font-bold text-primary text-base truncate">Ibrahima Baldé</h4>
+              <span class="inline-block bg-gold/15 text-gold-dark text-xs font-semibold px-2 py-0.5 rounded-full mt-1">Promo 2018</span>
+            </div>
+          </div>
+          <div class="mt-4 pt-4 border-t border-gray-100">
+            <p class="text-sm font-semibold text-gray-800">Chef de projet IA</p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-building text-xs mr-1.5 text-gold"></i>Ministère du Numérique
+            </p>
+            <p class="text-sm text-gray-500 flex items-center mt-1">
+              <i class="fas fa-map-marker-alt text-xs mr-1.5 text-gold"></i>Dakar, Sénégal
+            </p>
+          </div>
+          <div class="mt-4 flex space-x-2">
+            <a href="#" class="text-primary hover:text-gold transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-lg"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center fade-in">
+        <p class="text-gray-500 mb-6">Et bien d'autres encore… Faites partie du réseau et présentez-vous à la communauté !</p>
+        <a href="#contact" class="inline-flex items-center space-x-2 bg-primary hover:bg-primary-dark text-white font-bold px-8 py-4 rounded-xl text-base transition-all duration-300 hover:shadow-lg">
+          <i class="fas fa-user-plus"></i>
+          <span>Rejoindre le réseau</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== ÉVÉNEMENTS ===== -->
+  <section id="evenements" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-16 fade-in">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Agenda</p>
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 gold-underline">Événements</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-8">
+          Retrouvez nos prochains événements et activités organisés par RASID 
+          pour la communauté des alumni SID.
+        </p>
+      </div>
+
+      <!-- Events grid -->
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+
+        <!-- Event 1 -->
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="event-badge p-6 text-white relative">
+            <div class="absolute inset-0 opacity-20" style="background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><circle cx=%2230%22 cy=%2230%22 r=%2220%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221%22/></svg>')"></div>
+            <div class="relative z-10 flex items-center justify-between">
+              <div>
+                <div class="text-4xl font-extrabold text-gold leading-none">15</div>
+                <div class="text-gray-300 font-medium">AOÛT 2025</div>
+              </div>
+              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                <i class="fas fa-microphone text-gold text-xl"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-blue-50 text-primary text-xs font-semibold px-3 py-1 rounded-full mb-3">Conférence</span>
+            <h3 class="text-lg font-bold text-primary mb-2">Data Day SID 2025</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Grande conférence annuelle réunissant alumni, étudiants et professionnels autour des 
+              enjeux de la data science et de l'IA en Afrique.
+            </p>
+            <p class="text-gray-500 text-sm flex items-center mb-4">
+              <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+              UAD Bambey — Amphi principal
+            </p>
+            <a href="#contact" class="inline-flex items-center space-x-1 text-primary hover:text-gold font-semibold text-sm transition-colors group">
+              <span>En savoir plus</span>
+              <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="event-badge p-6 text-white relative">
+            <div class="absolute inset-0 opacity-20" style="background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><circle cx=%2230%22 cy=%2230%22 r=%2220%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221%22/></svg>')"></div>
+            <div class="relative z-10 flex items-center justify-between">
+              <div>
+                <div class="text-4xl font-extrabold text-gold leading-none">05</div>
+                <div class="text-gray-300 font-medium">OCT. 2025</div>
+              </div>
+              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                <i class="fas fa-laptop-code text-gold text-xl"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-gold/10 text-gold-dark text-xs font-semibold px-3 py-1 rounded-full mb-3">Hackathon</span>
+            <h3 class="text-lg font-bold text-primary mb-2">RASID Hackathon IA — Édition 2</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              48h de compétition ouverte aux étudiants et jeunes diplômés SID sur des cas d'usage 
+              réels proposés par nos partenaires entreprises.
+            </p>
+            <p class="text-gray-500 text-sm flex items-center mb-4">
+              <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+              En ligne — Format hybride
+            </p>
+            <a href="#contact" class="inline-flex items-center space-x-1 text-primary hover:text-gold font-semibold text-sm transition-colors group">
+              <span>En savoir plus</span>
+              <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div class="card-hover bg-white border border-gray-100 rounded-2xl overflow-hidden shadow-sm">
+          <div class="event-badge p-6 text-white relative">
+            <div class="absolute inset-0 opacity-20" style="background: url('data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%2260%22 height=%2260%22><circle cx=%2230%22 cy=%2230%22 r=%2220%22 fill=%22none%22 stroke=%22white%22 stroke-width=%221%22/></svg>')"></div>
+            <div class="relative z-10 flex items-center justify-between">
+              <div>
+                <div class="text-4xl font-extrabold text-gold leading-none">20</div>
+                <div class="text-gray-300 font-medium">DÉC. 2025</div>
+              </div>
+              <div class="w-12 h-12 bg-white/20 rounded-xl flex items-center justify-center">
+                <i class="fas fa-users text-gold text-xl"></i>
+              </div>
+            </div>
+          </div>
+          <div class="p-6">
+            <span class="inline-block bg-green-50 text-green-700 text-xs font-semibold px-3 py-1 rounded-full mb-3">Networking</span>
+            <h3 class="text-lg font-bold text-primary mb-2">Soirée Alumni SID — Dakar</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4">
+              Rencontre informelle entre alumni pour partager expériences, opportunités professionnelles 
+              et renforcer les liens de la communauté SID.
+            </p>
+            <p class="text-gray-500 text-sm flex items-center mb-4">
+              <i class="fas fa-map-marker-alt text-gold mr-2"></i>
+              Dakar — Lieu à confirmer
+            </p>
+            <a href="#contact" class="inline-flex items-center space-x-1 text-primary hover:text-gold font-semibold text-sm transition-colors group">
+              <span>En savoir plus</span>
+              <i class="fas fa-arrow-right text-xs group-hover:translate-x-1 transition-transform"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== PARTENAIRES ===== -->
+  <section id="partenaires" class="py-24 section-alt">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section header -->
+      <div class="text-center mb-16 fade-in">
+        <p class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Ils nous font confiance</p>
+        <h2 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 gold-underline">Nos Partenaires</h2>
+        <p class="text-gray-600 text-lg max-w-2xl mx-auto mt-8">
+          RASID collabore avec des entreprises, institutions et organisations qui partagent notre 
+          vision d'excellence et d'innovation.
+        </p>
+      </div>
+
+      <!-- Partners grid -->
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-12 fade-in">
+
+        <!-- Partner 1 -->
+        <div class="partner-card bg-white rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-orange-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-mobile-alt text-orange-500 text-xl"></i>
+          </div>
+          <p class="font-bold text-primary text-sm">Orange Sénégal</p>
+          <p class="text-gray-400 text-xs mt-1">Télécom</p>
+        </div>
+
+        <!-- Partner 2 -->
+        <div class="partner-card bg-white rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-university text-blue-600 text-xl"></i>
+          </div>
+          <p class="font-bold text-primary text-sm">UAD Bambey</p>
+          <p class="text-gray-400 text-xs mt-1">Université</p>
+        </div>
+
+        <!-- Partner 3 -->
+        <div class="partner-card bg-white rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-chart-line text-green-600 text-xl"></i>
+          </div>
+          <p class="font-bold text-primary text-sm">ANSD</p>
+          <p class="text-gray-400 text-xs mt-1">Statistiques</p>
+        </div>
+
+        <!-- Partner 4 -->
+        <div class="partner-card bg-white rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-shield-alt text-red-500 text-xl"></i>
+          </div>
+          <p class="font-bold text-primary text-sm">AXA Assurances</p>
+          <p class="text-gray-400 text-xs mt-1">Finance</p>
+        </div>
+
+        <!-- Partner 5 -->
+        <div class="partner-card bg-white rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-landmark text-purple-600 text-xl"></i>
+          </div>
+          <p class="font-bold text-primary text-sm">Banque Mondiale</p>
+          <p class="text-gray-400 text-xs mt-1">Institution</p>
+        </div>
+
+        <!-- Partner 6 -->
+        <div class="partner-card bg-white rounded-2xl p-6 text-center">
+          <div class="w-12 h-12 bg-teal-100 rounded-xl flex items-center justify-center mx-auto mb-3">
+            <i class="fas fa-brain text-teal-600 text-xl"></i>
+          </div>
+          <p class="font-bold text-primary text-sm">DataTech Africa</p>
+          <p class="text-gray-400 text-xs mt-1">Tech & IA</p>
+        </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center fade-in">
+        <p class="text-gray-500 mb-4">Vous souhaitez devenir partenaire de RASID ?</p>
+        <a href="#contact" class="inline-flex items-center space-x-2 border-2 border-primary hover:bg-primary text-primary hover:text-white font-bold px-8 py-4 rounded-xl text-base transition-all duration-300">
+          <i class="fas fa-handshake"></i>
+          <span>Devenir partenaire</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== CONTACT / REJOINDRE ===== -->
+  <section id="contact" class="py-24 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-16 items-start">
+
+        <!-- Left: Info -->
+        <div class="fade-in">
+          <p class="text-gold font-semibold text-sm uppercase tracking-widest mb-3">Nous rejoindre</p>
+          <h2 class="text-4xl sm:text-5xl font-extrabold text-primary mb-6 gold-underline">Contact</h2>
+          <p class="text-gray-600 text-lg mt-8 mb-8 leading-relaxed">
+            Vous êtes diplômé(e) du programme SID de l'UAD ? Rejoignez RASID et intégrez 
+            une communauté dynamique d'alumni passionnés par la data et l'innovation.
+          </p>
+
+          <div class="space-y-6 mb-10">
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-envelope text-primary text-lg"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Email</p>
+                <a href="mailto:contact@rasid-uad.org" class="text-gray-500 hover:text-gold transition-colors">contact@rasid-uad.org</a>
+              </div>
+            </div>
+            <div class="flex items-start space-x-4">
+              <div class="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-primary text-lg"></i>
+              </div>
+              <div>
+                <p class="font-semibold text-primary">Localisation</p>
+                <p class="text-gray-500">Université Alioune Diop de Bambey<br />Bambey, Sénégal</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div>
+            <p class="font-semibold text-primary mb-4">Suivez-nous sur</p>
+            <div class="flex space-x-4">
+              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                class="w-12 h-12 bg-[#0077B5] hover:bg-[#005885] text-white rounded-xl flex items-center justify-center transition-colors"
+                aria-label="LinkedIn">
+                <i class="fab fa-linkedin text-xl"></i>
+              </a>
+              <a href="https://github.com/rasiduad" target="_blank" rel="noopener noreferrer"
+                class="w-12 h-12 bg-gray-800 hover:bg-gray-900 text-white rounded-xl flex items-center justify-center transition-colors"
+                aria-label="GitHub">
+                <i class="fab fa-github text-xl"></i>
+              </a>
+              <a href="#"
+                class="w-12 h-12 bg-blue-500 hover:bg-blue-600 text-white rounded-xl flex items-center justify-center transition-colors"
+                aria-label="Facebook">
+                <i class="fab fa-facebook text-xl"></i>
+              </a>
+              <a href="#"
+                class="w-12 h-12 bg-sky-400 hover:bg-sky-500 text-white rounded-xl flex items-center justify-center transition-colors"
+                aria-label="Twitter / X">
+                <i class="fab fa-twitter text-xl"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Form -->
+        <div class="fade-in">
+          <div class="bg-white border border-gray-100 rounded-2xl shadow-xl p-8">
+            <h3 class="text-2xl font-bold text-primary mb-6">Rejoindre le réseau</h3>
+            <form id="contact-form" onsubmit="handleFormSubmit(event)" novalidate>
+              <div class="space-y-5">
+
+                <!-- Nom -->
+                <div>
+                  <label for="nom" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Nom complet <span class="text-red-500">*</span>
+                  </label>
+                  <input type="text" id="nom" name="nom" required
+                    placeholder="Ex : Aminata Mbaye"
+                    class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 transition-all duration-200 text-sm" />
+                </div>
+
+                <!-- Email -->
+                <div>
+                  <label for="email" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Adresse email <span class="text-red-500">*</span>
+                  </label>
+                  <input type="email" id="email" name="email" required
+                    placeholder="votre@email.com"
+                    class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 transition-all duration-200 text-sm" />
+                </div>
+
+                <!-- Promotion -->
+                <div>
+                  <label for="promotion" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Année de promotion <span class="text-red-500">*</span>
+                  </label>
+                  <select id="promotion" name="promotion" required
+                    class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 transition-all duration-200 text-sm bg-white appearance-none">
+                    <option value="" disabled selected>Sélectionnez votre promotion</option>
+                    <option value="2015">Promo 2015</option>
+                    <option value="2016">Promo 2016</option>
+                    <option value="2017">Promo 2017</option>
+                    <option value="2018">Promo 2018</option>
+                    <option value="2019">Promo 2019</option>
+                    <option value="2020">Promo 2020</option>
+                    <option value="2021">Promo 2021</option>
+                    <option value="2022">Promo 2022</option>
+                    <option value="2023">Promo 2023</option>
+                    <option value="2024">Promo 2024</option>
+                    <option value="2025">Promo 2025</option>
+                  </select>
+                </div>
+
+                <!-- Message -->
+                <div>
+                  <label for="message" class="block text-sm font-semibold text-gray-700 mb-1.5">
+                    Message
+                  </label>
+                  <textarea id="message" name="message" rows="4"
+                    placeholder="Parlez-nous de vous, de votre parcours ou de vos attentes..."
+                    class="form-input w-full border border-gray-200 rounded-xl px-4 py-3 text-gray-800 placeholder-gray-400 transition-all duration-200 text-sm resize-none"></textarea>
+                </div>
+
+                <!-- Submit -->
+                <button type="submit"
+                  class="w-full bg-primary hover:bg-primary-dark text-white font-bold py-4 rounded-xl text-base transition-all duration-300 hover:shadow-lg flex items-center justify-center space-x-2">
+                  <i class="fas fa-paper-plane"></i>
+                  <span>Envoyer ma demande</span>
+                </button>
+
+              </div>
+            </form>
+
+            <!-- Success message (hidden by default) -->
+            <div id="success-msg" class="hidden mt-4 bg-green-50 border border-green-200 rounded-xl p-4 text-green-700 text-sm flex items-start space-x-3">
+              <i class="fas fa-check-circle text-green-500 text-lg mt-0.5 flex-shrink-0"></i>
+              <div>
+                <p class="font-semibold">Merci pour votre inscription !</p>
+                <p class="mt-1 text-green-600">Votre demande a bien été reçue. Nous vous contacterons très prochainement pour finaliser votre adhésion au réseau RASID.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="bg-primary-dark text-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand -->
+        <div class="lg:col-span-2">
+          <div class="flex items-center space-x-3 mb-5">
+            <div class="w-10 h-10 rounded-lg bg-gold flex items-center justify-center font-bold text-primary text-lg">
+              R
+            </div>
+            <span class="font-bold text-xl tracking-wide">RASID</span>
+          </div>
+          <p class="text-gray-300 text-sm leading-relaxed mb-5 max-w-sm">
+            Réseau des Alumni de Statistique et Informatique Décisionnelle — 
+            Université Alioune Diop de Bambey, Sénégal.
+          </p>
+          <p class="text-gold italic text-sm font-light">
+            "Connecter les talents, valoriser l'expertise, construire l'avenir"
+          </p>
+        </div>
+
+        <!-- Navigation rapide -->
+        <div>
+          <h4 class="font-bold text-gold text-sm uppercase tracking-widest mb-5">Navigation</h4>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li><a href="#accueil" class="hover:text-gold transition-colors">Accueil</a></li>
+            <li><a href="#apropos" class="hover:text-gold transition-colors">À propos</a></li>
+            <li><a href="#reseau" class="hover:text-gold transition-colors">Notre Réseau</a></li>
+            <li><a href="#evenements" class="hover:text-gold transition-colors">Événements</a></li>
+            <li><a href="#partenaires" class="hover:text-gold transition-colors">Partenaires</a></li>
+            <li><a href="#contact" class="hover:text-gold transition-colors">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Liens utiles -->
+        <div>
+          <h4 class="font-bold text-gold text-sm uppercase tracking-widest mb-5">Liens utiles</h4>
+          <ul class="space-y-3 text-sm text-gray-300">
+            <li>
+              <a href="https://uadb.edu.sn" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors flex items-center space-x-1">
+                <i class="fas fa-external-link-alt text-xs"></i>
+                <span>Université UAD Bambey</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/rasiduad" target="_blank" rel="noopener noreferrer" class="hover:text-gold transition-colors flex items-center space-x-1">
+                <i class="fab fa-github text-xs"></i>
+                <span>GitHub RASID</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:contact@rasid-uad.org" class="hover:text-gold transition-colors flex items-center space-x-1">
+                <i class="fas fa-envelope text-xs"></i>
+                <span>contact@rasid-uad.org</span>
+              </a>
+            </li>
+          </ul>
+          <!-- Social -->
+          <div class="flex space-x-3 mt-6">
+            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-colors" aria-label="LinkedIn">
+              <i class="fab fa-linkedin text-sm"></i>
+            </a>
+            <a href="https://github.com/rasiduad" target="_blank" rel="noopener noreferrer" class="w-9 h-9 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-colors" aria-label="GitHub">
+              <i class="fab fa-github text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-colors" aria-label="Facebook">
+              <i class="fab fa-facebook text-sm"></i>
+            </a>
+            <a href="#" class="w-9 h-9 bg-white/10 hover:bg-gold rounded-lg flex items-center justify-center transition-colors" aria-label="Twitter">
+              <i class="fab fa-twitter text-sm"></i>
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="border-t border-white/10 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-400">
+        <p>© <span id="current-year"></span> RASID — Tous droits réservés.</p>
+        <p>Fait avec <i class="fas fa-heart text-gold mx-1"></i> par les Alumni SID de l'UAD</p>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ===== JAVASCRIPT ===== -->
+  <script>
+    // ── Current year in footer
+    document.getElementById('current-year').textContent = new Date().getFullYear();
+
+    // ── Mobile menu toggle
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const menuIcon = document.getElementById('menu-icon');
+
+    menuToggle.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.contains('open');
+      mobileMenu.classList.toggle('open');
+      menuIcon.className = isOpen ? 'fas fa-bars text-xl' : 'fas fa-times text-xl';
+      menuToggle.setAttribute('aria-expanded', String(!isOpen));
+    });
+
+    // Close mobile menu on link click
+    document.querySelectorAll('.mobile-link').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        menuIcon.className = 'fas fa-bars text-xl';
+        menuToggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    // ── Navbar scroll effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('navbar-scrolled', window.scrollY > 20);
+    }, { passive: true });
+
+    // ── Intersection Observer for fade-in animations
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── Contact form handler
+    function handleFormSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('contact-form');
+      const successMsg = document.getElementById('success-msg');
+
+      // Basic validation
+      const nom = form.nom.value.trim();
+      const email = form.email.value.trim();
+      const promotion = form.promotion.value;
+
+      if (!nom || !email || !promotion) {
+        // Highlight empty required fields
+        [form.nom, form.email, form.promotion].forEach(field => {
+          if (!field.value.trim()) {
+            field.classList.add('border-red-400');
+            field.addEventListener('input', () => field.classList.remove('border-red-400'), { once: true });
+          }
+        });
+        return;
+      }
+
+      // Simulate form submission success
+      form.reset();
+      successMsg.classList.remove('hidden');
+      successMsg.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      // Hide after 8 seconds
+      setTimeout(() => successMsg.classList.add('hidden'), 8000);
+    }
+
+    // ── Active nav link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    const sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const id = entry.target.getAttribute('id');
+            navLinks.forEach(link => {
+              const isActive = link.getAttribute('href') === `#${id}`;
+              link.classList.toggle('text-gold', isActive);
+              link.classList.toggle('text-gray-200', !isActive);
+            });
+          }
+        });
+      },
+      { threshold: 0.4 }
+    );
+
+    sections.forEach(section => sectionObserver.observe(section));
+  </script>
+
+</body>
+</html>
