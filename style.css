@@ -654,9 +654,9 @@ main {
 }
 
 .footer-links ul {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1.5rem;
 }
 
 .footer-links a {
